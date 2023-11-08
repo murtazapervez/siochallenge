@@ -17,7 +17,16 @@
                         </div>
 
                         <div class="row mt-4">
-                            {{ $dataTable->table() }}
+                            <table class="table table-bordered data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Total Time Spent</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -26,5 +35,21 @@
     </div>
 @endsection
 @push('custom-scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+    
+
+<script type="text/javascript">
+    $(function () {
+        
+      var table = $('.data-table').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ route('evaluation') }}",
+          columns: [
+              {data: 'username', name: 'username'},
+              {data: 'total_time_spent_in_hours', name: 'total_time_spent_in_hours'},
+          ]
+      });
+        
+    });
+  </script>
 @endpush
