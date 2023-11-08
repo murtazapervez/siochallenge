@@ -32,7 +32,7 @@ This project is built using Laravel and follows the Repository Pattern to abstra
 ## Setup Guide
 
 ### Clone the Repository
-```bash
+
 git clone https://github.com/murtazapervez/siochallenge
 cd /path/to/project_folder
 composer update
